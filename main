@@ -8,11 +8,15 @@ data_used = np.genfromtxt(temp_data, delimiter=',',dtype=None ,names=True,encodi
 #task 2 
 real_data=np.array(data_used,dtype=[('date', 'U10'), ('city', 'U20'), ('col1', int), ('col2', int), ('col3', int), ('col4', int), ('col5', int), ('col6', int)] )
 
-dates = real_data['col2']
-temps_used = data_used
-#average_temp = np.mean(temps_used, axis = 0 )
-#print(average_temp)
+Max_temps = real_data[['city','col1']]
 
-#average_temp = np.mean(np.diff(temp_data, axis=1) / temp_data[2:4, :] * 100, axis=1)
+    
+#av = np.mean(Max_temps,axis=0)
+print(Max_temps)
 
-print(dates)    
+city_temp = []
+
+for city,col1 in Max_temps:
+    city_temp.append(col1)
+
+print(city_temp)
