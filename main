@@ -1,0 +1,18 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+temp_data = "C:\\Users\\walid\\OneDrive\\Desktop\\class\\final_project\\data_temperature.txt"
+columns_to_read1 = []
+#task 1 
+data_used = np.genfromtxt(temp_data, delimiter=',',dtype=None ,names=True,encoding=None,skip_header=1)
+#task 2 
+real_data=np.array(data_used,dtype=[('date', 'U10'), ('city', 'U20'), ('col1', int), ('col2', int), ('col3', int), ('col4', int), ('col5', int), ('col6', int)] )
+
+dates = real_data['col2']
+temps_used = data_used
+#average_temp = np.mean(temps_used, axis = 0 )
+#print(average_temp)
+
+#average_temp = np.mean(np.diff(temp_data, axis=1) / temp_data[2:4, :] * 100, axis=1)
+
+print(dates)    
