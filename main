@@ -5,18 +5,36 @@ temp_data = "C:\\Users\\walid\\OneDrive\\Desktop\\class\\final_project\\data_tem
 columns_to_read1 = []
 #task 1 
 data_used = np.genfromtxt(temp_data, delimiter=',',dtype=None ,names=True,encoding=None,skip_header=1)
+
 #task 2 
 real_data=np.array(data_used,dtype=[('date', 'U10'), ('city', 'U20'), ('col1', int), ('col2', int), ('col3', int), ('col4', int), ('col5', int), ('col6', int)] )
 
-Max_temps = real_data[['city','col1']]
+def task1(real_data):
+    
+    Max_temps = real_data[['city','col1']]
+    
+    city_data = {}
+    for city, col1 in Max_temps:
+        if city not in city_data:
+            city_data[city] = []
+        city_data[city].append(col1)
+
+    result = list(city_data.items())
+   
+    
+    
+    city_lists = {}
+
+   
+    for city, col1 in result:
+        city_lists[city] = col1 
 
     
-#av = np.mean(Max_temps,axis=0)
-print(Max_temps)
+    for city, col1 in city_lists.items():
+        print(f"{city}: {col1}")
+     
+     
 
-city_temp = []
+task1(real_data)
 
-for city,col1 in Max_temps:
-    city_temp.append(col1)
 
-print(city_temp)
