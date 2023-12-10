@@ -7,27 +7,18 @@ columns_to_read1 = []
 data_used = np.genfromtxt(temp_data, delimiter=',',dtype=None ,names=True,encoding=None,skip_header=1)
 
 #task 2 
-real_data=np.array(data_used,dtype=[('date', 'U10'), ('city', 'U20'), ('col1', int), ('col2', int), ('col3', int), ('col4', int), ('col5', int), ('col6', int)] )
+real_data=np.array(data_used,dtype=[('date', 'U10'), ('citi', 'U20'), ('col1', int), ('col2', int), ('col3', int), ('col4', int), ('col5', int), ('col6', int)] )
 
 #task 3
-citi = input("what city do you want to work with?")
+city = input("what city do you want to work with?")
 
 def task3_1(real_data):
    
-    locations = real_data['city']
+    locations = real_data['citi']
     cities = np.unique(locations)
     
-    for city in cities:
-        if citi in cities:
-            city_data = real_data[locations == citi]
-        
-            dates = city_data['date']
-            max_temps = city_data['col1']
-            min_temps = city_data['col2']
-        
-       
-            avg_temps = (max_temps + min_temps) / 2
-        else: 
+    for citi in cities:
+        if city in cities:
             city_data = real_data[locations == city]
         
             dates = city_data['date']
@@ -36,9 +27,18 @@ def task3_1(real_data):
         
        
             avg_temps = (max_temps + min_temps) / 2
+        else: 
+            city_data = real_data[locations == citi]
+        
+            dates = city_data['date']
+            max_temps = city_data['col1']
+            min_temps = city_data['col2']
+        
+       
+            avg_temps = (max_temps + min_temps) / 2
 
         
-        plt.plot(dates, avg_temps, label=city)
+        plt.plot(dates, avg_temps, label=citi)
     
 
     plt.xlabel('Date')
@@ -50,38 +50,38 @@ def task3_1(real_data):
 
 def task3_2(real_data):
     
-    locations = real_data['city']
+    locations = real_data['citi']
     cities = np.unique(locations)
 
-    if citi not in cities :
-        Max_temps = real_data[['city','col1']]
-        Min_temps = real_data[['city','col2']]
+    if city not in cities :
+        Max_temps = real_data[['citi','col1']]
+        Min_temps = real_data[['citi','col2']]
     
     
         city_data = {}
-        for city, col1  in Max_temps:
-            if city not in city_data:
-                city_data[city] = []
-            city_data[city].append(col1)
+        for citi, col1  in Max_temps:
+            if citi not in city_data:
+                city_data[citi] = []
+            city_data[citi].append(col1)
 
-        for city, col2  in Min_temps:
-            city_data[city].append(col2)
+        for citi, col2  in Min_temps:
+            city_data[citi].append(col2)
     
         result = list(city_data.items())
    
         city_lists = {}
 
-        for city, col1 in result:
-            city_lists[city] = col1 
+        for citi, col1 in result:
+            city_lists[citi] = col1 
         
-        for city, col2 in result:
-            city_lists[city] = col2
+        for citi, col2 in result:
+            city_lists[citi] = col2
     
         x = ['New York','Los Angeles','London','Tokyo','Beijing','Sydney','Paris','Berlin','Cairo','New Delhi']
         y= []
     
-        for city in x:
-            haha = sum(city_lists[city])/len(city_lists[city])
+        for citi in x:
+            haha = sum(city_lists[citi])/len(city_lists[citi])
             y.append(haha)
 
         plt.bar(x,y,label= "",width=1, edgecolor = 'black')
@@ -98,9 +98,9 @@ task3_2(real_data)
 #task 5 
 tempp_data = "C:\\Users\\walid\\OneDrive\\Desktop\\class\\final_project\\Paris_data_climate.txt"
 dataa_used = np.genfromtxt(tempp_data, delimiter=',',dtype=None ,names=True,encoding=None,skip_header=1)
-reall_data=np.array(dataa_used,dtype=[('date', 'U10'), ('city', 'U20'), ('col1', int), ('col2', int), ('col3', int), ('col4', int), ('col5', int), ('col6', int), ('col7', int), ('col8', int)] )
+reall_data=np.array(dataa_used,dtype=[('date', 'U10'), ('citi', 'U20'), ('col1', int), ('col2', int), ('col3', int), ('col4', int), ('col5', int), ('col6', int), ('col7', int), ('col8', int)] )
 
-def task5():
+def aa():
     
     locations = reall_data['city']
     cities = np.unique(locations)
@@ -131,6 +131,8 @@ def task5():
     
     plt.show()
 
-task5()    
+aa()    
+
+
 
 
