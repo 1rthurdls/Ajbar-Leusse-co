@@ -1,6 +1,8 @@
 import sys
 import Exercice2etexrecice4 as ex
 
+listeville=["New York", "Los Angeles", "London", "Tokyo", "Beijing", "Sydney","Paris", "Berlin", "Cairo", "New Delhi"]
+
 if  len(sys.argv) < 2:
     print("this is a message for the user, in order for you toaccess the informaation you need, you need follow this structure")
     print("python 'name of the file' 'city your are interseted in' 'number of data you are searching'")
@@ -20,36 +22,70 @@ elif  len(sys.argv) ==3:
     number = int(sys.argv[2])
 
     if number == 7:
-        listeville=["New York", "Los Angeles", "London", "Tokyo", "Beijing", "Sydney","Paris", "Berlin", "Cairo", "New Delhi"]
         
         if city in listeville:
             idx = ex.search(city,listeville)[0]
             print(ex.windspeedforeachcity()[idx])
+            sys.exit()
+        else:
+            print("ERROR,errortype city not in database")
+            sys.exit()
     elif number == 6:
-        listeville=["New York", "Los Angeles", "London", "Tokyo", "Beijing", "Sydney","Paris", "Berlin", "Cairo", "New Delhi"]
         
         if city in listeville:
             idx = ex.search(city,listeville)[0]
             print(ex.precipitation_for_each_city()[idx])
-    
+            sys.exit()
+        else:
+            print("ERROR,errortype city not in database")
+            sys.exit()
+
     elif number == 5:
-        listeville=["New York", "Los Angeles", "London", "Tokyo", "Beijing", "Sydney","Paris", "Berlin", "Cairo", "New Delhi"]
         
         if city in listeville:
             idx = ex.search(city,listeville)[0]
             print(ex.averaget()[idx])
+            sys.exit()
+        else:
+            print("ERROR,errortype city not in database")
+            sys.exit()
 
     elif number == 4:
-        print(ex.avgteachday(city))
-    
+        if city in listeville:
+            print(ex.avgteachday(city))
+            sys.exit()
+        else :
+            print("ERROR,errortype city not in database")
+            sys.exit()
+
     elif number == 3:
-        print(ex.overall_coldest_day(city))
+        if city in listeville:
+            print(ex.overall_coldest_day(city))
+            sys.exit()
+        else :
+            print("ERROR,errortype city not in database")
+            sys.exit()
     
     elif number == 2:
-        print(ex.overall_hottest_day(city))
+        if city in listeville:
+            print(ex.overall_hottest_day(city))
+            sys.exit()
+        else :
+            print("ERROR,errortype city not in database")
+            sys.exit()
     
     elif number == 1:
-         print(ex.hottestandcoldest(city))    
+        if city in listeville:
+            print(ex.hottestandcoldest(city))
+            sys.exit()   
+        else :
+             print("ERROR,errortype city not in database")
+             sys.exit()
+
 
     else:
         sys.exit()
+
+elif  len(sys.argv) >3:
+    print("ERROR, errortype: too many arguments were given")
+    sys.exit()
