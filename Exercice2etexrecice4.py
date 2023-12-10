@@ -1,4 +1,7 @@
 import numpy as np
+import sys
+
+
 
 # Load the data
 data_path = "C:\\Users\\cestm\\Downloads\\Ajbar-Leusse-co-main\\data.txt"
@@ -38,6 +41,7 @@ def averaget():
             i+=1
         result.append((city,np.average(tcity)))
     return result
+
 #_______________________________________________
 
 
@@ -111,6 +115,11 @@ def search(x, y):
             i+=1
     return listidx
 
+def listofdate():
+    liste_of_date=[]
+    for i in range(310):
+        liste_of_date.append(x[i][0])
+    return liste_of_date
 
 def avgteachday(city):
     tmax = listoftmax()
@@ -118,15 +127,19 @@ def avgteachday(city):
     cities = listofcities()
     idxx = search(city, cities)
     avgt = []
+    list_of_date = listofdate()
+    date = list_of_date[int(idxx[0]):int(idxx[-1])+1]
+    
     for i in idxx:
-        avg_temp = np.average([int(tmin[i]), int(tmax[i])])
+        avg_temp = ((tmax[i] + tmin[i]) / 2)
         if 12 <= avg_temp <= 22:
             category = "moderate"
         elif avg_temp < 12:
             category = "cold"
         else:
             category = "hot"
-        avgt.append((avg_temp, category))
+        avgt.append((list_of_date[i],avg_temp, category))
+    
     return [city, avgt]
 
 #__________________________________________________________
@@ -139,14 +152,6 @@ def averagetttt():
         average.append((listoftmax()[i] + listoftmin()[i]) / 2)
     return average
 
-
-
-
-def listofdate():
-    liste_of_date=[]
-    for i in range(310):
-        liste_of_date.append(x[i][0])
-    return liste_of_date
 
 
 def hottestandcoldest(city):
@@ -193,13 +198,29 @@ print(hottestandcoldest("New Delhi"))
 #________________________________________________________
 #Exercice 4d
 """
-On Los Angeles hottest day,its highest temperature is the higgest of January and its lowest Temperature is the second highest of January. 
-The cloud cover is very low with only 8% wich is tghe second lowest of January and the Humidity is also very Low (the second lowest of January).
-On its coldest day, The maximum temperature is the smallest of the month, and its coldest is the coldest of the month. The cloud cover is Kind of low
-In comparison with the average of the month and the rest of are in the average of the month. 
 
 
+In New York, the combination of high humidity (65-85%), variable wind speed (10-25 km/h), frequent precipitation, and moderate cloud cover suggests are the cause of such low temperatures.
 
+Los Angeles, with its lower humidity (48-90%), moderate winds (12-20 km/h), absence of precipitation, and low to moderate cloud cover, reflects way hotter temperature and very variable ones(from 25-10 °c). 
+
+London's high humidity (68-90%), moderate to high winds (12-25 km/h), regular precipitation, and high cloud cover indicate such low temperature and such a low variation of temperature.
+
+Tokyo's moderate humidity (55-90%), winds (10-22 km/h), low precipitation, and variable cloud cover suggest a 
+moderate and cold temperature with still a big variation(16-0 °c)
+
+Beijing, with lower humidity (36-50%), varying winds (10-22 km/h), very low precipitation, and low cloud cover, are the cause of cold temperature
+
+Let's not forget that these two lasts country have temperature that variate aa lot because of the monsoon Which is a process that makes the temperature variation between winter and summer not to extreme.
+
+
+Sydney's moderate humidity (35-45%), winds (14-20 km/h), very low precipitation, and low cloud cover are characteristic of warm and not variable temperatures.
+
+Paris and Berlin, both with high humidity (68-92%), moderate winds (14-24 km/h), some precipitation, and moderate to high cloud cover, exhibit a very temperete climate with very low variations of temperature and temperatures that are moderate.
+
+ Cairo's very low humidity (35-42%), moderate winds (14-20 km/h), absence of precipitation, and variable cloud cover typify an arid desert climate with mostly high temperature that range from(29-8)
+
+ Finally,New Delhi's moderate to high humidity (48-65%), winds (10-22 km/h), minimal precipitation, and low cloud cover suggest hot temperatures with a big difference between the highest temperature ofthe day and the lower ones.
 
 """
 
@@ -247,8 +268,6 @@ def overall_coldest_day(city):
     return "Date :",date,"Minumum Temperature :",tempmin,"Maximum Temperature",listoftmax()[mindidxdecity],"Precipitation :",listeofprecipitations()[mindidxdecity],"Wind speed :",wind_speed()[mindidxdecity],"Humidity :",Humidity()[mindidxdecity],"Cloud Cover :",Cloud_Cover()[mindidxdecity]
 
 #_____________________________________________________________________________
-#Excercice 6
-
 
 
 
