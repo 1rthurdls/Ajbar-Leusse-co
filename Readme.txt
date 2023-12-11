@@ -16,8 +16,7 @@ You have 3 steps to do to access a certain data :
 2) type : 'python' 'name of the file (if you didn't change its name it schould be interactiveint.py)
 3)follow the instructions given by the software
 
-! IMPORTANT in order for you to use the software you need to keep everything in the same file
-
+! IMPORTANT in order for you to use the software you need to change the path of the file at some points. 
 Best regards 
 
 Habibis's team
