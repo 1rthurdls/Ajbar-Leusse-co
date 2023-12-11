@@ -117,11 +117,12 @@ def aa():
 
         pres = city_data['col3']
         co2 = city_data['col7']
+        co2_used = co2 / 10
         sea = city_data['col8']
 
         plt.plot(dates, avg_temps, label="temp")
         plt.plot(dates, pres, label="pres")
-        plt.plot(dates, co2, label="co2")
+        plt.plot(dates, co2_used, label="co2")
         plt.plot(dates, sea, label="sea")
 
     plt.xlabel('Date')
