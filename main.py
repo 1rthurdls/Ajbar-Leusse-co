@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sys
 
-temp_data = "C:\\Users\\cestm\\Downloads\\Ajbar-Leusse-co-main\\data.txt"
+temp_data = "data.txt"
 columns_to_read1 = []
 #task 1 
 data_used = np.genfromtxt(temp_data, delimiter=',',dtype=None ,names=True,encoding=None,skip_header=1)
@@ -96,7 +96,7 @@ task3_2(real_data)
 """  
 
 #task 5 
-tempp_data = "C:\\Users\\cestm\\Downloads\\Ajbar-Leusse-co-main\\Paris_data_climate.txt"
+tempp_data = "Paris_data_climate.txt"
 dataa_used = np.genfromtxt(tempp_data, delimiter=',',dtype=None ,names=True,encoding=None,skip_header=1)
 reall_data=np.array(dataa_used,dtype=[('date', 'U10'), ('citi', 'U20'), ('col1', int), ('col2', int), ('col3', int), ('col4', int), ('col5', int), ('col6', int), ('col7', int), ('col8', int)] )
 
