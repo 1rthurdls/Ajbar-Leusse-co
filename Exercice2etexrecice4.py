@@ -4,7 +4,7 @@ import sys
 
 
 # Exercice 1 
-data_path = "C:\\Users\\cestm\\Downloads\\Ajbar-Leusse-co-main\\data.txt"
+data_path = "data.txt"
 data = np.loadtxt(data_path, delimiter=",", dtype=str, skiprows=1)
 x= np.array(data)
 
