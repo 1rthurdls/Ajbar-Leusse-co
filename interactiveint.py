@@ -7,7 +7,7 @@ import numpy as np
 listeville=["New York", "Los Angeles", "London", "Tokyo", "Beijing", "Sydney","Paris", "Berlin", "Cairo", "New Delhi","All"]
 
 
-temp_data = "C:\\Users\\cestm\\Downloads\\Ajbar-Leusse-co-main\\data.txt"
+temp_data = "data.txt"
 columns_to_read1 = []
 
 data_used = np.genfromtxt(temp_data, delimiter=',',dtype=None ,names=True,encoding=None,skip_header=1)
