@@ -3,10 +3,13 @@ import sys
 
 
 
-# Load the data
+# Exercice 1 
 data_path = "C:\\Users\\cestm\\Downloads\\Ajbar-Leusse-co-main\\data.txt"
 data = np.loadtxt(data_path, delimiter=",", dtype=str, skiprows=1)
 x= np.array(data)
+
+#_____________________________________________________________________
+
 #exercice 2a
 def listoftmax():
     liste_of_tmax=[]
@@ -184,7 +187,7 @@ def hottestandcoldest(city):
 
 #_________________________________________________________________________________
 # Execcice 4c
-
+"""
 print(hottestandcoldest("Los Angeles"))
 print(hottestandcoldest("London"))
 print(hottestandcoldest("Tokyo"))
@@ -194,6 +197,7 @@ print(hottestandcoldest("Berlin"))
 print(hottestandcoldest("Cairo"))
 print(hottestandcoldest("New Delhi"))
 
+"""
 
 #________________________________________________________
 #Exercice 4d
